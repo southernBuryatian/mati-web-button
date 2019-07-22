@@ -7,7 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "webpack",
+    "serve": "webpack serve"
   },
   "author": "",
   "license": "ISC",
@@ -21,18 +23,16 @@
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-optional-catch-binding": "^7.2.0",
-    "@babel/plugin-transform-regenerator": "^7.4.5",
-    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.4",
     "@babel/runtime": "^7.5.5",
+    "@storybook/addon-knobs": "^5.1.9",
     "@storybook/html": "^5.1.9",
     "@webpack-cli/serve": "^0.1.8",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.3",
+    "file-loader": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
-    "raw-loader": "^3.1.0",
-    "svg-inline-loader": "^0.8.0",
     "webpack": "^4.36.1",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.6",

@@ -3,9 +3,9 @@ import { LitElement, html, css } from "lit-element";
 export default class MatiFrame extends LitElement {
   static get properties() {
     return {
-      clientId: { type: String, attribute: "client-id" },
+      clientId: { type: String },
       disabled: { type: Boolean, reflect: true },
-      signupHost: { type: String, attribute: "signup-host" },
+      signupHost: { type: String },
       metadata: { type: String }
     };
   }

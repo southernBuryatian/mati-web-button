@@ -14,7 +14,7 @@ const presets = [
 ];
 
 const plugins = [
-  "@babel/plugin-proposal-optional-catch-binding"
+  // "@babel/plugin-proposal-optional-catch-binding"
   // "@babel/plugin-transform-regenerator"
   // "@babel/plugin-transform-runtime"
 ];

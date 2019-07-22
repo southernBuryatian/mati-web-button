@@ -33,8 +33,9 @@ module.exports = {
         loader: "babel-loader"
       },
       {
-        test: /\.svg$/,
-        loader: "svg-inline-loader"
+        test: /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/,
+        loader: "file-loader",
+        query: { name: "[name].[hash:8].[ext]" }
       }
     ]
   }
