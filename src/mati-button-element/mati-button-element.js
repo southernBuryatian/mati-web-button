@@ -138,7 +138,6 @@ export default class MatiButtonElement extends LitElement {
   }
 
   render() {
-    console.log(this.color);
     return html`
       <figure><img src="${MatiLogoURL}" alt="Mati" /></figure>
       <main>

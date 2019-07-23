@@ -1,7 +1,8 @@
 import "regenerator-runtime/runtime";
 
 window.WebComponents = window.WebComponents || {};
-window.WebComponents.root = window.WebComponents.root || "/webcomponentsjs/";
+window.WebComponents.root =
+  window.WebComponents.root || `${process.env.ASSETS_PATH}/webcomponentsjs/`;
 require("@webcomponents/webcomponentsjs/webcomponents-loader");
 
 WebComponents.waitFor(async () => {

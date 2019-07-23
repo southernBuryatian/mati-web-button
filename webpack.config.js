@@ -1,9 +1,12 @@
 const path = require("path");
+const { DefinePlugin } = require("webpack");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+const ASSETS_PATH = process.env.ASSETS_PATH || "/";
 
 module.exports = {
   entry: {
@@ -14,7 +17,7 @@ module.exports = {
     filename: "[name].js",
     chunkFilename: "[name].[hash:8].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: process.env.ASSETS_PATH || "/"
+    publicPath: ASSETS_PATH
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
@@ -23,7 +26,10 @@ module.exports = {
         from: "./node_modules/@webcomponents/webcomponentsjs/bundles",
         to: "webcomponentsjs/bundles"
       }
-    ])
+    ]),
+    new DefinePlugin({
+      "process.env.ASSETS_PATH": JSON.stringify(ASSETS_PATH)
+    })
   ],
   module: {
     rules: [
