@@ -12,7 +12,9 @@ module.exports = {
   mode: "production",
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "dist")
+    chunkFilename: "[name].[hash:8].js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: process.env.ASSETS_PATH || "/"
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
