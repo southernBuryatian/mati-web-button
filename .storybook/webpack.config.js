@@ -1,15 +1,13 @@
-// const Dotenv = require("dotenv-webpack");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = async ({ config, mode }) => {
-  // Make whatever fine-grained changes you need
-
-  // config.module.rules.unshift({
-  //   test: /\.svg$/,
-  //   loader: "./node_modules/raw-loader/dist/cjs.js"
-  // });
-  // console.log(config.module.rules);
-  // Return the altered config
-  // config.node = { fs: "empty" };
-  console.log(config.plugins);
+  config.plugins.push(
+    new CopyPlugin([
+      {
+        from: "./node_modules/@webcomponents/webcomponentsjs/bundles",
+        to: "webcomponentsjs/bundles"
+      }
+    ])
+  );
   return config;
 };

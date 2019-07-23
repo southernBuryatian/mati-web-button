@@ -1,4 +1,5 @@
 import { LitElement, html, css, unsafeCSS } from "lit-element";
+import { render } from "lit-html";
 import hexToHsl from "hex-to-hsl";
 import MatiLogoURL from "./mati-logo.svg";
 
@@ -137,13 +138,8 @@ export default class MatiButtonElement extends LitElement {
   }
 
   render() {
+    console.log(this.color);
     return html`
-      <style>
-        main {
-          color: ${unsafeCSS(isDark(this.color) ? "white" : "black")};
-          background-color: ${unsafeCSS(this.color)};
-        }
-      </style>
       <figure><img src="${MatiLogoURL}" alt="Mati" /></figure>
       <main>
         ${this.loading
@@ -154,5 +150,22 @@ export default class MatiButtonElement extends LitElement {
         <label>${this.translations.verify}</label>
       </main>
     `;
+  }
+
+  updateStyles() {
+    this.shadowRoot.querySelector("main").style.backgroundColor = this.color;
+    this.shadowRoot.querySelector("main").style.color = isDark(this.color)
+      ? "white"
+      : "black";
+  }
+
+  firstUpdated() {
+    this.updateStyles();
+  }
+
+  updated(props) {
+    if (props.has("color")) {
+      this.updateStyles();
+    }
   }
 }

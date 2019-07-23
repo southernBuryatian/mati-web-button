@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./index.js"
+    button: "./index.js"
   },
   mode: "production",
   output: {
@@ -16,14 +16,12 @@ module.exports = {
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
-    new CleanWebpackPlugin(),
     new CopyPlugin([
       {
         from: "./node_modules/@webcomponents/webcomponentsjs/bundles",
         to: "webcomponentsjs/bundles"
       }
-    ]),
-    new HtmlWebpackPlugin({ template: "index.html", inject: "head" })
+    ])
   ],
   module: {
     rules: [

@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build": "webpack",
+    "build-storybook": "build-storybook -o dist",
+    "build": "npm run build-storybook && webpack",
     "serve": "webpack serve"
   },
   "author": "",
