@@ -1,4 +1,5 @@
 import { LitElement, html, css, unsafeCSS } from "lit-element";
+import { htmlDecode } from "../utils";
 import hexToHsl from "hex-to-hsl";
 
 export default class MatiButton extends LitElement {
@@ -10,7 +11,8 @@ export default class MatiButton extends LitElement {
       disabled: { type: Boolean },
       loading: { type: Boolean },
       color: { type: String },
-      language: { type: String }
+      language: { type: String },
+      metadata: { type: String }
     };
   }
 
@@ -73,7 +75,7 @@ export default class MatiButton extends LitElement {
     const frame = document.createElement("mati-frame");
     frame.setAttribute("signuphost", this.signupHost);
     frame.setAttribute("clientid", this.clientId);
-    frame.setAttribute("metadata", this.metadata);
+    frame.setAttribute("metadata", htmlDecode(this.metadata));
     window.document.body.appendChild(frame);
   }
 

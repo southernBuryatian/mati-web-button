@@ -21,6 +21,10 @@ stories.add("Button", () => {
     "signuphost",
     text("Signup Host", process.env.STORYBOOK_SIGNUP_HOST)
   );
+  button.setAttribute(
+    "metadata",
+    text("Metadata", JSON.stringify({ userId: 123 }))
+  );
   return button;
 });
 
