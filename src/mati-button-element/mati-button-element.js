@@ -110,7 +110,8 @@ export default class MatiButtonElement extends LitElement {
     this.tabindex = 0;
     this.ariaPressed = "false";
     this.color = DEFAULT_COLOR;
-    this.language = "en";
+    this.defaultLanguage = "en";
+    this.language = this.defaultLanguage;
   }
 
   set color(value) {
@@ -134,7 +135,7 @@ export default class MatiButtonElement extends LitElement {
   }
 
   get translations() {
-    return TRANSLATIONS[this.language];
+    return TRANSLATIONS[this.language] || TRANSLATIONS[this.defaultLanguage];
   }
 
   render() {
