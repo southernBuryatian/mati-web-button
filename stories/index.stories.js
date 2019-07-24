@@ -15,11 +15,17 @@ stories.add("Button", () => {
   );
   button.setAttribute(
     "apihost",
-    text("API Host", process.env.STORYBOOK_API_HOST)
+    text(
+      "API Host",
+      process.env.STORYBOOK_API_HOST || "https://api.getmati.com"
+    )
   );
   button.setAttribute(
     "signuphost",
-    text("Signup Host", process.env.STORYBOOK_SIGNUP_HOST)
+    text(
+      "Signup Host",
+      process.env.STORYBOOK_SIGNUP_HOST || "https://signup.getmati.com"
+    )
   );
   button.setAttribute(
     "metadata",
