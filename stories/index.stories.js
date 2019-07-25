@@ -9,28 +9,16 @@ stories.addDecorator(withKnobs);
 
 stories.add("Button", () => {
   const button = document.createElement("mati-button");
-  button.setAttribute(
-    "clientid",
-    text("Client ID", process.env.STORYBOOK_CLIENT_ID)
+  button.clientId = text("Client ID", process.env.STORYBOOK_CLIENT_ID);
+  button.apiHost = text(
+    "API Host",
+    process.env.STORYBOOK_API_HOST || "https://api.getmati.com"
   );
-  button.setAttribute(
-    "apihost",
-    text(
-      "API Host",
-      process.env.STORYBOOK_API_HOST || "https://api.getmati.com"
-    )
+  button.signupHost = text(
+    "Signup Host",
+    process.env.STORYBOOK_SIGNUP_HOST || "https://signup.getmati.com"
   );
-  button.setAttribute(
-    "signuphost",
-    text(
-      "Signup Host",
-      process.env.STORYBOOK_SIGNUP_HOST || "https://signup.getmati.com"
-    )
-  );
-  button.setAttribute(
-    "metadata",
-    text("Metadata", JSON.stringify({ userId: 123 }))
-  );
+  button.metadata = text("Metadata", JSON.stringify({ userId: 123 }));
   return button;
 });
 

@@ -30,8 +30,16 @@ export default class MatiFrame extends LitElement {
     `;
   }
 
+  constructor() {
+    super();
+    this.metadata = null;
+  }
+
   render() {
-    const url = `${this.signupHost}/?merchantToken=${this.clientId}&metadata=${this.metadata}`;
+    const url = new URL(this.signupHost);
+    [["merchantToken", this.clientId], ["metadata", this.metadata]]
+      .filter(([unused, value]) => value)
+      .forEach(([attr, value]) => url.searchParams.append(attr, value));
     return html`
       <iframe
         @message="${this.handleMessages}"

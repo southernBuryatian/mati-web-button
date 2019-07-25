@@ -31,9 +31,18 @@ export default class MatiButton extends LitElement {
     this.apiHost = "https://api.getmati.com";
     this.signupHost = "https://signup.getmati.com";
     [this.language] = navigator.language.split("-");
+    this.metadata = null;
 
     this.addEventListener("click", this.openIframe);
     window.addEventListener("message", this.handleFrameMessages.bind(this));
+  }
+
+  get metadata() {
+    return this._metadata ? htmlDecode(this._metadata) : this._metadata;
+  }
+
+  set metadata(value) {
+    this._metadata = value;
   }
 
   handleFrameMessages({ origin, data }) {
@@ -73,9 +82,8 @@ export default class MatiButton extends LitElement {
     this.loading = true;
     this.removeFrame();
     const frame = document.createElement("mati-frame");
-    frame.setAttribute("signuphost", this.signupHost);
-    frame.setAttribute("clientid", this.clientId);
-    frame.setAttribute("metadata", htmlDecode(this.metadata));
+    const { signupHost, clientId, metadata } = this;
+    Object.assign(frame, { signupHost, clientId, metadata });
     window.document.body.appendChild(frame);
   }
 
