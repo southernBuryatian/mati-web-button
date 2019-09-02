@@ -22,8 +22,8 @@ const TRANSLATIONS = {
 };
 
 function isDark(hexColor) {
-  const [, , lighness] = hexToHsl(hexColor);
-  return lighness < 70;
+  const [, , lightness] = hexToHsl(hexColor);
+  return lightness < 70;
 }
 
 export default class MatiButtonElement extends LitElement {

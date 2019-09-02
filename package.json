@@ -1,11 +1,10 @@
 {
   "name": "mati-button",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Integrate Mati verification using mati-button",
   "main": "index.js",
   "module": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o dist",
     "build": "npm run build-storybook && webpack",
