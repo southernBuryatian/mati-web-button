@@ -62,6 +62,9 @@ export default class MatiButton extends LitElement {
         case "exitedSdk":
           this.removeFrame();
           break;
+        case "userFinishedSdk":
+          this.removeFrame();
+          break;
         default:
       }
     } catch (e) {
