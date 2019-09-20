@@ -1,0 +1,11 @@
+<head>
+  <script src="./button.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    const button = document.createElement("mati-button");
+    const query = new URLSearchParams(location.search);
+    button.setAttribute("clientid", query.get("clientid"));
+    document.body.appendChild(button);
+  </script>
+</body>
