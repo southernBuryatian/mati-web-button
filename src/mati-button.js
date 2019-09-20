@@ -94,7 +94,7 @@ export default class MatiButton extends LitElement {
     for (const key of ["signupHost", "clientId", "metadata"]) {
       this[key] && frame.setAttribute(key, this[key]);
     }
-    // window.document.body.appendChild(frame);
+    window.document.body.appendChild(frame);
 
     // Force re-enable button and allow user to retry the click.
     setTimeout(() => {
