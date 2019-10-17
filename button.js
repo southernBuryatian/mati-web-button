@@ -8,4 +8,9 @@ const script =
 script.id = "webcomponentsLoader";
 script.src = `${WEBCOMPONENTS_ROOT}webcomponents-loader.js`;
 document.head.appendChild(script);
-addEventListener("WebComponentsReady", () => import("./src/mati-button"));
+
+if (WebComponents.ready) {
+  require("./src/mati-button");
+} else {
+  addEventListener("WebComponentsReady", () => require("./src/mati-button"));
+}
