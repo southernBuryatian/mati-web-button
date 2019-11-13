@@ -97,6 +97,10 @@ export default class MatiButtonElement extends LitElement {
       :host([loading]) label {
         visibility: hidden;
       }
+      
+      label {
+        cursor: pointer;
+      }
 
       mati-spinner {
         position: absolute;

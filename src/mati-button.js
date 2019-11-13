@@ -2,6 +2,15 @@ import { LitElement, html, css } from "lit-element";
 import "./mati-button-element";
 import "./mati-frame";
 
+const EventBase = 'mati';
+
+const Events = {
+  loaded: 'loadedSdk',
+  error: 'errorSdk',
+  exitedSdk: 'exitedSdk',
+  userFinishedSdk: 'userFinishedSdk',
+};
+
 function htmlDecode(string) {
   const e = document.createElement("textarea");
   e.innerHTML = string;
@@ -61,22 +70,29 @@ export default class MatiButton extends LitElement {
       const [, actionName] = action.split("::");
 
       switch (actionName) {
-        case "loaded":
+        case Events.loaded:
           this.disabled = false;
           this.loading = false;
           break;
-        case "exitedSdk":
+        case Events.exitedSdk:
+        case Events.userFinishedSdk:
           this.removeFrame();
           break;
-        case "userFinishedSdk":
-          this.removeFrame();
-          break;
-        default:
       }
+      this.emitEvent(actionName, payload);
     } catch (e) {
-      console.error(e);
-      console.error("Mati: unable to read info from mati popup");
+      console.error("Mati: unable to read info from mati popup", e);
+      this.emitEvent(Events.error, e);
     }
+  }
+
+  emitEvent(name, payload) {
+    const event = new CustomEvent(`${EventBase}:${name}`, {
+      detail: {
+        ...payload,
+      }
+    });
+    this.dispatchEvent(event);
   }
 
   removeFrame() {

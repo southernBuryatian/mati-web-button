@@ -1,11 +1,36 @@
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test Mati button</title>
   <script src="./button.js"></script>
 </head>
 <body>
   <script type="text/javascript">
-    const button = document.createElement("mati-button");
+
     const query = new URLSearchParams(location.search);
+
+    // create button
+    const button = document.createElement("mati-button");
+
+    // setup attributes
     button.setAttribute("clientid", query.get("clientid"));
+
+    // setup callbacks
+    button.addEventListener('mati:loaded', ({ detail }) => {
+      console.log('loaded payload', detail)
+    })
+    button.addEventListener('mati:userFinishedSdk', ({ detail }) => {
+      console.log('finished payload', detail)
+    })
+    button.addEventListener('mati:exitedSdk', ({ detail }) => {
+      console.log('exited payload', detail)
+    })
+    
+    // init button
     document.body.appendChild(button);
   </script>
 </body>
+</html>
