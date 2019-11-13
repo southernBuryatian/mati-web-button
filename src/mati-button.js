@@ -5,7 +5,7 @@ import "./mati-frame";
 const EventBase = 'mati';
 
 const Events = {
-  loaded: 'loadedSdk',
+  loaded: 'loaded',
   error: 'errorSdk',
   exitedSdk: 'exitedSdk',
   userFinishedSdk: 'userFinishedSdk',
