@@ -1,15 +1,15 @@
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { optimize } = require("webpack");
-const ASSETS_PATH = process.env.ASSETS_PATH || "/";
+const path = require("path");
+
 module.exports = {
   mode: "production",
   entry: {
-    //  main: "./main.js",
     button: "./button.js"
   },
   output: {
-    publicPath: ASSETS_PATH
+    path: path.resolve(__dirname, "build"),
   },
   module: {
     noParse: /webcomponents/,
