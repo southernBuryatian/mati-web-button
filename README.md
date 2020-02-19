@@ -46,4 +46,4 @@ Get your client ID from Mati Dashboard and put this code snippet anywhere in you
 
 * Angular: https://codesandbox.io/s/angular-3z773
 
-* React: https://codesandbox.io/s/infallible-bash-7p0oq
+* React: https://codesandbox.io/s/interesting-boyd-xcg63
